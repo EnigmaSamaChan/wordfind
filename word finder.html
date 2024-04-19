@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div style="padding: 70px;" class="container-fluid bg-warning text-center text-white">
+        <h1>Text Finder</h1>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="words">Wandering down the path to the pond had become a daily routine. Even when the weather wasn't cooperating like today with the wind and rain, Jerry still took the morning
+                 stroll down the path until he reached the pond. Although there didn't seem to be a particular reason Jerry did this to anyone looking in from the outside, those who knew him well knew 
+                 exactly what was going on. It could all be traced back to a specific incident that happened exactly 5 years previously.</p>
+            </div>
+            <div class="col-md-6">
+                <input id="searchbar" onkeyup="search_word()" type="text" name="search" placeholder="Look for a word in the paragraph here...">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function search_word(){
+            let input = document.getElementById('searchbar').value 
+            input = input.toLowerCase();
+            let x = document.getElementsByClassName('words');
+
+            for(i = 0; i < x.length; i++){
+                if(!x[i].innerHTML.toLowerCase().includes(input)){
+                    x[i].style.display="none";
+                }else{
+                    x[i].style.display="list-item";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
